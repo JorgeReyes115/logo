@@ -1,5 +1,5 @@
-const inquirer =("inquirer");
-const fs = ("fs");
+const  inquirer = require("inquirer");
+const fs = require("fs");
 const questions = require("./lib/questions.js");
 const shapeRender = require("./lib/shapeRender.js")
 
