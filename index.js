@@ -4,18 +4,39 @@ const questions = require("./lib/questions.js");
 const shapeRender = require("./lib/shapeRender.js")
 
 
-function createLogo(data) {
-    fs.writeFile("./examples/logo.svg", shapeRender, ()=> console.log("logo.svg has been generated"));
-}
+inquirer
+.prompt([
+    {
+        type: "input",
+        name: "logoName",
+        message: "please name your logo,(3) characters max"
+    },
+    {
+        type: "input",
+        name: "logoNameColor",
+        message: "please choose your logo name color,(keyword or hexadecimal number}",
+    },
+    {
+        type: "list",
+        name: "shapeForm",
+        message: "please choose the shape that you like the most",
+        choices: ["circle", "triangle", "square"],
+    },
+    {
+        type: "input",
+        name: "shapeColor",
+        message: "please choose your shape color,(keyword or hexadecimal number",
+    },
+])
+
+.then((data)=>
+fs.writeFile("./examples/logo.svg", shapeRender(data),(err)=> {
+    if(err){
+        console.log(err);
+    }
+    else{
+        consoler.log("logo has been created")
+    }
+}));
 
 
-function init(){
-    inquirer
-    .prompt(questions)
-    .then((data)=>{
-        createLogo(data);
-    });
-}
-
-
-init();
