@@ -29,14 +29,14 @@ inquirer
     },
 ])
 
-.then((data)=>
-fs.writeFile("./examples/logo.svg", shapeRender(data),(err)=> {
+.then((data)=>{
+fs.writeFile("./examples/logo.svg",()=> {shapeRender(data);});})
+.catch((err)=> {
     if(err){
         console.log(err);
     }
     else{
-        consoler.log("logo has been created")
-    }
-}));
+        console.log("logo has been created")
+    }})
 
 
