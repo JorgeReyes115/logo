@@ -1,8 +1,8 @@
 const  inquirer = require("inquirer");
 const fs = require("fs");
 const questions = require("./lib/questions.js");
-const shapeRender = require("./lib/shapeRender.js")
-
+const shapeRender = require("./lib/shapeRender.js");
+const SVG = require("./lib/generateSVG.js");
 
 inquirer
 .prompt([
