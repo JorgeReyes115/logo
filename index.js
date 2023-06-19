@@ -30,13 +30,7 @@ inquirer
 ])
 
 .then((data)=>{
-fs.writeFile("./examples/logo.svg",()=> {shapeRender(data);});})
-.catch((err)=> {
-    if(err){
-        console.log(err);
-    }
-    else{
-        console.log("logo has been created")
-    }})
+fs.writeFile("./examples/logo.svg",shapeRender(data),(err)=>{if(err){
+    console.log(err);}});})
 
 
